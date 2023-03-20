@@ -69,5 +69,8 @@ console.log(autos.addProduct({
     code : 1
 })); 
 
+//Retorna el array con sus objetos pusheados
 console.log(autos.getProduct());
+
+//Muestra que el code 5 no existe
 console.log(autos.getProductById(5));
