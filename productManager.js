@@ -6,7 +6,7 @@ class ProductManager {
     }
 
     /*Metodo que agrega objetos a un array , valida que todos los campos esten completos ,
-    general code automaticamente eh unico y valida si el code se repite  */
+    genera id automaticamente y valida si el code se repite  */
     addProduct(nuevoAuto){
         if(nuevoAuto.title === '' || nuevoAuto.description === '' || 
            nuevoAuto.price === '' || nuevoAuto.thumbnail === '' ||
