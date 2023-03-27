@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/andresaguiarok/Backend-ecommerce/issues"
   },
-  "homepage": "https://github.com/andresaguiarok/Backend-ecommerce#readme"
+  "homepage": "https://github.com/andresaguiarok/Backend-ecommerce#readme",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
 }

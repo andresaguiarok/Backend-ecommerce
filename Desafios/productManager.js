@@ -76,4 +76,4 @@ console.log(autos.addProduct({
 console.log(autos.getProduct());
 
 //Muestra que el id 5 no existe y retorna "Not Found"
-console.log(autos.getProductById(5));
+console.log(autos.getProductById(2));

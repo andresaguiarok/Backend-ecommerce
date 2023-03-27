@@ -55,12 +55,12 @@ const operacionAsyncronica = async () => {
         // fs.writeFile("./data.txt", "Texto nuevo", "utf-8")
         // .then (()=> console.log("termino de escribir"))
         // .catch(err => console.log(err))
-        await fs.appendFile("./data.txt", "se agrega algo", "utf-8")
+        await fs.appendFile("./data.txt", "se agrega algo\n", "utf-8")
 
         let contenido = await fs.readFile("./data.txt", "uft-8")
         console.log(contenido);
 
-        await fs.unLink
+        await fs.unLink("./data.txt")
 
     }catch (err){
         console.log(err);
