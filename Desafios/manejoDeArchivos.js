@@ -1,8 +1,9 @@
 const fs = require("fs");
+const listaDeAutos = []
 
 class ProductManager {
     constructor (){
-        this.products = []
+        this.products = listaDeAutos
         this.path = "./Desafios/data.json"
     }
 
@@ -19,7 +20,7 @@ class ProductManager {
     
             this.products.push(nuevoAuto)
             
-            await fs.promises.writeFile(this.path, JSON.stringify(this.products))
+            await fs.promises.writeFile(this.path, JSON.stringify(this.products, "null", 2), "utf-8")
         } catch (error) {
             return error
         }
@@ -52,24 +53,41 @@ class ProductManager {
         }
     }
 
-    updateProduct = () => {}
+    updateProduct = async (autoId) => {
+        let buscarId = await this.readProducts()
+        let actualizarAuto = buscarId.find(auto => auto.id === autoId)
+
+        actualizarAuto.title = "Ford Focus Gti"
+        actualizarAuto.description = "Modelo: 2020"
+        actualizarAuto.price = 20.999
+        actualizarAuto.stock = 6
+        
+        const autoActualizado = JSON.stringify(actualizarAuto)
+        console.log(autoActualizado);
+        await fs.promises.writeFile(this.path, autoActualizado, "utf-8")
+    }
+
+    deleteProduct = async(autoId) => {
+        let traerDatos = await this.readProducts()
+        let autosFiltrados = traerDatos.filter(auto => auto.id != autoId)
+
+        await fs.promises.writeFile(this.path, JSON.stringify(autosFiltrados))
+    }
+
 }
 
   const autos = new ProductManager ();
 // //Prueba de objetos I
-// autos.addProduct('Ford Focus', 'Modelo: 2018' , 16.699 , 'Sin imagen' , "Ax34bv", 12)
-// autos.addProduct('Jeep Renage','Modelo: 2019' ,23.899 ,'Sin imagen' ,"Ab987xz",16)
+autos.addProduct('Ford Focus', 'Modelo: 2018' , 16.699 , 'Sin imagen' , "Ax34bv", 12)
+autos.addProduct('Jeep Renage','Modelo: 2019' ,23.899 ,'Sin imagen' ,"Ab987xz",16)
+autos.addProduct('Bmw 120i','Modelo: 2016' ,22.999 ,'Sin imagen' ,"Ac67mn8",16)
+autos.addProduct('Ford Fiesta','Modelo: 2020' ,15.899 ,'Sin imagen' ,"Ac67mn8",16)
 
 // //Prueba de objetos, el primero da "code ya ingresado" y el segundo da "complete los campos"
-// autos.addProduct('Jeep Renage','Modelo: 2015' ,18.899 ,'Sin imagen' ,"Ab987xz",8)
-// autos.addProduct('Audi A4', '', 21.999, 'dfd', '', '')
-
-// //Prueba de objetos II
-// autos.addProduct('Bmw 120i','Modelo: 2016' ,22.999 ,'Sin imagen' ,"Ac67mn8",16)
-// autos.addProduct('Ford Fiesta','Modelo: 2020' ,15.899 ,'Sin imagen' ,"Ac67mn8",16)
+autos.addProduct('Jeep Renage','Modelo: 2015' ,18.899 ,'Sin imagen' ,"Ab987xz",8)
+autos.addProduct('Audi A4', '', 21.999, 'dfd', '', '')
 
 autos.getProducts()
-autos.getProductById(6)
-
-
-// node ./Desafios/manejoDeArchivos.js
+autos.getProductById()
+autos.updateProduct()
+autos.deleteProduct()

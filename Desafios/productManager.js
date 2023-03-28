@@ -77,3 +77,9 @@ console.log(autos.getProduct());
 
 //Muestra que el id 5 no existe y retorna "Not Found"
 console.log(autos.getProductById(2));
+
+// deleteProduct = async(autoId) => {
+//     let traerDatos = await this.readProducts()
+//     let autosFiltrados = traerDatos.filter(auto => auto.id != autoId)
+
+//     await fs.promises.writeFile(this.path, JSON.stringify(autosFiltrados))
