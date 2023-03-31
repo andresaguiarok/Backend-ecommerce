@@ -93,4 +93,4 @@ class ProductManager {
 // });
 
 // //deleteProduct elimina el producto cuyo id sea igual
-autos.deleteProduct()
+// autos.deleteProduct()
