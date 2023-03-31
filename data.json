@@ -1,14 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "Ford Focus Rs",
-    "description": "Modelo 2020",
-    "price": 22.599,
-    "thumbnail": "https://www.elcarrocolombiano.com/wp-content/uploads/2020/04/20202004-FORD-FOCUS-RS-PORTADA-01.jpg",
-    "code": "Ax34bv",
-    "stock": 8
-  },
-  {
     "id": 2,
     "title": "Jeep Renage",
     "description": "Modelo: 2019",
@@ -34,5 +25,14 @@
     "thumbnail": "Sin imagen",
     "code": "Ay27op7",
     "stock": 9
+  },
+  {
+    "id": 1,
+    "title": "Ford Focus Rs",
+    "description": "Modelo 2020",
+    "price": 22.599,
+    "thumbnail": "https://www.elcarrocolombiano.com/wp-content/uploads/2020/04/20202004-FORD-FOCUS-RS-PORTADA-01.jpg",
+    "code": "Ax34bv",
+    "stock": 8
   }
 ]
