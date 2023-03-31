@@ -14,9 +14,8 @@ class ProductManager {
            nuevoAuto.price === '' || nuevoAuto.thumbnail === '' ||
            nuevoAuto.code === '' || nuevoAuto.stock === '') return 'Complete los campos correctamente'
     
-        const db = await fs.promises.readFile(this.path);
-        const autos = JSON.parse(db);
-        if (autos.find((auto) => auto.code === code)) return "El code de este articulo ya existe"
+        let auto = this.products.find(auto => auto.code == code)
+        if (auto) return  "El auto con este code ya fue ingresado"
 
         this.products.push(nuevoAuto)
 
@@ -72,16 +71,15 @@ class ProductManager {
 // autos.addProduct('Bmw 120i','Modelo: 2016' ,22.999 ,'Sin imagen' ,"Ac67mn8",8);
 // autos.addProduct('Ford Fiesta','Modelo: 2020' ,15.899 ,'Sin imagen' ,"Ay27op7",9);
 
-//Prueba de objetos, el primero da "code ya ingresado" y el segundo da "complete los campos"
-// autos.addProduct('Jeep Renage','Modelo: 2015' ,18.899 ,'Sin imagen' ,"Ab987xz",8);
+//Prueba de objetos da "complete los campos"
 // autos.addProduct('Audi A4', '', 21.999, 'dfd', '', '')
 
 //getProducts trae el array con los objetos
-// autos.getProducts().then(auto => console.log(auto))
+//autos.getProducts().then(auto => console.log(auto))
 
 // //El primer getProductById da el objeto delproducto y el segundo getProductById da "Not found"
-// autos.getProductById(3).then(auto => console.log(auto)) 
-// autos.getProductById(8).then(auto => console.log(auto))
+//autos.getProductById(3).then(auto => console.log(auto)) 
+//autos.getProductById(8).then(auto => console.log(auto))
 
 // //updateProduct actualiza el objeto
 // autos.updateProduct(1,{
@@ -93,4 +91,4 @@ class ProductManager {
 // });
 
 // //deleteProduct elimina el producto cuyo id sea igual
-// autos.deleteProduct()
+// autos.deleteProduct(1)
