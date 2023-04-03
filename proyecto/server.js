@@ -10,10 +10,10 @@ const consulta = async() => {
     app.get("/products", async (req, res) => {
         let productos = await pm.readProducts()
         const limit = req.query.limit
-        if (limit){
-            return res.send(productos.slice(0,limit)) 
-        }
-        res.send(productos)
+
+        limit
+        ? res.send(productos.slice(0,limit)) 
+        :res.send(productos)
     });
 
     app.get("/products/:pid", async(req,res) =>{
